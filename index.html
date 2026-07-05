@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jaipur Door Solutions | Premium Fire Rated, Metal Doors & Installation</title>
+    <meta name="description" content="India's leading manufacturer and installation expert of premium Fire Exit Doors, HMPS Doors, and Commercial Door Solutions since 2010.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#1E40AF',
+                        accent: '#F59E0B',
+                        bglight: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html, body { 
+            background-color: #F8FAFC; 
+            color: #334155; 
+            overflow-x: hidden !important; 
+            max-width: 100vw; 
+            width: 100%;
+            position: relative;
+        }
+        
+        #loader { 
+            position: fixed; 
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #0F172A; 
+            z-index: 999999; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            transition: opacity 0.4s ease; 
+        }
+        .spinner { 
+            width: 60px; 
+            height: 60px; 
+            border: 5px solid #1E40AF; 
+            border-top-color: #F59E0B; 
+            border-radius: 50%; 
+            animation: spin 1s linear infinite; 
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #F59E0B; z-index: 10000; width: 0%; transition: width 0.1s; }
+        
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-b: 1px solid rgba(255, 255, 255, 0.3); }
+        .glass-dark { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        nav { transition: all 0.4s ease; }
+        nav.scrolled { padding-top: 0.4rem; padding-bottom: 0.4rem; background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+
+        .hero-bg {
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.5)), url('hero-bg.jpg') center/cover no-repeat;
+        }
+
+        .map-container { width: 100%; max-width: 100vw; overflow: hidden; }
+        .map-container iframe { width: 100% !important; height: 100% !important; border: 0; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="customAlert" class="fixed inset-0 bg-primary/80 backdrop-blur-xs z-[99999] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 p-8 text-center border border-gray-100" id="customAlertContent">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-check text-3xl text-green-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-2" id="customAlertTitle">Success</h3>
+            <p class="text-sm text-gray-500 mb-6 leading-relaxed" id="customAlertMessage">Message goes here.</p>
+            <button onclick="closeCustomAlert()" class="w-full bg-secondary text-white font-bold py-3.5 rounded-xl hover:bg-primary transition shadow-md text-sm cursor-pointer">OK, Got it!</button>
+        </div>
+    </div>
+
+    <div id="loader"><div class="spinner"></div></div>
+    <div id="progress-bar"></div>
+
+    <nav id="navbar" class="fixed w-full z-50 top-0 py-4 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center gap-2">
+                    <img src="logo.png" onerror="this.style.display='none'" class="h-10 w-auto" alt="Logo">
+                    <span class="font-extrabold text-xl md:text-2xl text-primary tracking-tight uppercase">Jaipur Door <span class="text-accent">Solutions</span></span>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8 font-semibold text-sm">
+                    <a href="#home" class="text-primary hover:text-accent transition">Home</a>
+                    <a href="#about" class="text-primary hover:text-accent transition">About Us</a>
+                    <a href="#services" class="text-primary hover:text-accent transition">Services</a>
+                    <a href="#products" class="text-primary hover:text-accent transition">Products</a>
+                    <a href="#catalog" class="text-primary hover:text-accent transition">Catalog</a>
+                    <a href="#reviews" class="text-primary hover:text-accent transition">Reviews</a>
+                    <a href="#quote" class="bg-primary text-white px-6 py-2.5 rounded-full hover:bg-secondary transition shadow-lg">Get Quote</a>
+                </div>
+
+                <button type="button" class="lg:hidden text-primary text-2xl focus:outline-none cursor-pointer" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-xl absolute w-full left-0 top-full flex flex-col font-medium text-center divide-y divide-gray-100">
+            <a href="#home" class="py-3 text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="#about" class="py-3 text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
+            <a href="#services" class="py-3 text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+            <a href="#products" class="py-3 text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Products</a>
+            <a href="#catalog" class="py-3 text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Catalog</a>
+            <a href="#reviews" class="py-3 text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Reviews</a>
+            <a href="#quote" class="py-3 text-accent font-bold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Get Quote</a>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-bg h-screen flex items-center relative overflow-hidden w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-12">
+            <div class="max-w-3xl" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-block glass-dark text-accent font-semibold px-4 py-1.5 rounded-full text-xs md:text-sm mb-6 uppercase tracking-widest border border-accent/30">
+                    <i class="fa-solid fa-shield-halved mr-2"></i> Serving Since 2010
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+                    Engineered for <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-300">Safety & Precision</span>
+                </h1>
+                <p class="text-base md:text-xl text-gray-300 mb-8 max-w-2xl font-light">
+                    Premium manufacturing, professional installation, and expert repairing of Fire Rated Exit Doors, HMPS Doors, and Commercial Steel Entrances.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#products" class="bg-accent text-primary font-bold text-base md:text-lg px-8 py-3.5 rounded-full hover:bg-yellow-400 transition text-center shadow-lg">Our Products</a>
+                    <a href="#catalog" class="glass-dark text-white font-bold text-base md:text-lg px-8 py-3.5 rounded-full hover:bg-white/10 transition text-center border border-white/20">Download Catalog</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <img src="about-factory.jpg" class="rounded-3xl shadow-xl object-cover h-[450px] w-full" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Factory Installation">
+                    <div class="absolute -bottom-6 -right-6 glass-dark p-6 rounded-2xl text-white max-w-xs shadow-xl hidden md:block border border-gray-600">
+                        <i class="fa-solid fa-clock-rotate-left text-3xl text-accent mb-2"></i>
+                        <h4 class="text-xl font-bold mb-1">Since 2010</h4>
+                        <p class="text-gray-300 text-xs">Over a decade of trusted manufacturing & structural solutions.</p>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <h4 class="text-secondary font-bold uppercase tracking-widest text-sm mb-2">Corporate Identity</h4>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-6 leading-tight">Setting the Benchmark in <span class="text-accent">Industrial Doors</span></h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">At Jaipur Door Solutions, we handle everything from high-precision engineering and manufacturing to final structural on-site implementation and maintenance. Our products are widely deployed in commercial towers, hospitals, factories, and industrial hubs across Rajasthan.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-secondary text-xl"><i class="fa-solid fa-bullseye"></i></div>
+                            <div>
+                                <h5 class="font-bold text-primary mb-1">Our Mission</h5>
+                                <p class="text-xs text-gray-500">To deliver uncompromised safety and architectural elegance in every fabrication.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-secondary text-xl"><i class="fa-solid fa-eye"></i></div>
+                            <div>
+                                <h5 class="font-bold text-primary mb-1">Our Vision</h5>
+                                <p class="text-xs text-gray-500">To be India's most trusted name in commercial entrance automation and safety.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+                <div data-aos="zoom-in">
+                    <h3 class="text-4xl font-extrabold text-accent mb-2"><span class="counter" data-target="1500">0</span>+</h3>
+                    <p class="text-gray-400 font-medium uppercase tracking-wider text-xs">Projects Completed</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="100">
+                    <h3 class="text-4xl font-extrabold text-accent mb-2"><span class="counter" data-target="10000">0</span>+</h3>
+                    <p class="text-gray-400 font-medium uppercase tracking-wider text-xs">Doors Installed</p>
+                </div>
+                <div class="border-t border-white/10 md:border-t-0 pt-6 md:pt-0" data-aos="zoom-in" data-aos-delay="200">
+                    <h3 class="text-4xl font-extrabold text-accent mb-2"><span class="counter" data-target="50">0</span>+</h3>
+                    <p class="text-gray-400 font-medium uppercase tracking-wider text-xs">Cities Served</p>
+                </div>
+                <div class="border-t border-white/10 md:border-t-0 pt-6 md:pt-0" data-aos="zoom-in" data-aos-delay="300">
+                    <h3 class="text-4xl font-extrabold text-accent mb-2"><span class="counter" data-target="100">0</span>%</h3>
+                    <p class="text-gray-400 font-medium uppercase tracking-wider text-xs">Quality Assurance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-bglight">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                <h4 class="text-secondary font-bold uppercase tracking-widest text-sm mb-2">Our Core Expertise</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">Manufacturing & Services</h2>
+                <div class="w-16 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm transition hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-50 text-secondary rounded-full flex items-center justify-center text-xl mx-auto mb-4"><i class="fa-solid fa-industry"></i></div>
+                    <h3 class="font-bold text-primary text-lg mb-2">Door Manufacturing</h3>
+                    <p class="text-gray-500 text-sm">Premium fire doors, HMPS, and all types of commercial metal doors manufactured with industry-standard precision.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm transition hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-50 text-secondary rounded-full flex items-center justify-center text-xl mx-auto mb-4"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3 class="font-bold text-primary text-lg mb-2">Door Installation</h3>
+                    <p class="text-gray-500 text-sm">Professional alignment, laser-guided calibration, and flawless fire seal fitting executed by expert engineers.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm transition hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-50 text-secondary rounded-full flex items-center justify-center text-xl mx-auto mb-4"><i class="fa-solid fa-toolbox"></i></div>
+                    <h3 class="font-bold text-primary text-lg mb-2">Repairing Works</h3>
+                    <p class="text-gray-500 text-sm">Expert maintenance, hardware replacement, and complete on-site repairing services for existing structural doors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-primary">Our Complete Product Spectrum</h2>
+                <div class="w-16 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl overflow-hidden shadow border border-gray-100 group relative" data-aos="zoom-in">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="fire-exit.jpg" onerror="this.src='https://images.unsplash.com/photo-1622475471958-36f731118155?q=80'" alt="Fire Exit Door" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-base text-primary mb-2">Fire Exit Door</h4>
+                        <button onclick="openProductModal('Fire Exit Door', '120 Mins Fire Rating', 'G.I. Sheet 1.20mm', 'Conforms to IS:3614')" class="text-xs text-secondary font-semibold hover:text-accent transition cursor-pointer">View Technical Specs →</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl overflow-hidden shadow border border-gray-100 group relative" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="fhc-door.jpg" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Fire FHC Door" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-base text-primary mb-2">Fire FHC Door</h4>
+                        <button onclick="openProductModal('Fire FHC Door', 'Fire Hose Cabinet Rated', 'Heavy Duty Hinges', 'Approved Standard')" class="text-xs text-secondary font-semibold hover:text-accent transition cursor-pointer">View Technical Specs →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow border border-gray-100 group relative" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="hmps-door.jpg" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80'" alt="HMPS Door" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-base text-primary mb-2">HMPS Door</h4>
+                        <button onclick="openProductModal('HMPS Door', 'Hollow Metal Pressed Steel', 'Highly Durable Frame', 'Custom Sizes')" class="text-xs text-secondary font-semibold hover:text-accent transition cursor-pointer">View Technical Specs →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow border border-gray-100 group relative" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="general-metal.jpg" onerror="this.src='https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80'" alt="General Purpose Metal Door" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-base text-primary mb-2">General Metal Door</h4>
+                        <button onclick="openProductModal('General Metal Door', 'M.S. Sheet 0.80mm', 'Double Skin 46mm', 'Industrial Grade')" class="text-xs text-secondary font-semibold hover:text-accent transition cursor-pointer">View Technical Specs →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow border border-gray-100 group relative" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="temp-proof.jpg" onerror="this.src='https://images.unsplash.com/photo-1622475471958-36f731118155?q=80'" alt="Temperature Proof Door" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-base text-primary mb-2">Temperature Proof Door</h4>
+                        <button onclick="openProductModal('Temperature Proof Door', 'Thermal Insulation', 'High Density Infill', 'Weather Resistant')" class="text-xs text-secondary font-semibold hover:text-accent transition cursor-pointer">View Technical Specs →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow border border-gray-100 group relative" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="shaft-door.jpg" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Plumbing & Fire Shaft Doors" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-base text-primary mb-2">Shaft Doors</h4>
+                        <button onclick="openProductModal('Shaft Doors', 'Easy Service Access', 'Flush Metal Profile', 'Fire Protective Trim')" class="text-xs text-secondary font-semibold hover:text-accent transition cursor-pointer">View Technical Specs →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow border border-gray-100 group relative" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="aluminium-door.jpg" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80'" alt="Aluminium Door" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-base text-primary mb-2">Aluminium Door</h4>
+                        <button onclick="openProductModal('Aluminium Door', 'Premium Profile Work', 'Rust Resistant Finish', 'Architectural Styling')" class="text-xs text-secondary font-semibold hover:text-accent transition cursor-pointer">View Technical Specs →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow border border-gray-100 group relative" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="h-48 overflow-hidden bg-gray-100">
+                        <img src="pvc-door.jpg" onerror="this.src='https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80'" alt="PVC Doors" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-base text-primary mb-2">PVC Doors</h4>
+                        <button onclick="openProductModal('PVC Doors', 'Waterproof', 'Lightweight', 'Washroom & Utility Friendly')" class="text-xs text-secondary font-semibold hover:text-accent transition cursor-pointer">View Technical Specs →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Work Gallery & Catalog Section -->
+    <section id="catalog" class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                <h4 class="text-accent font-bold uppercase tracking-widest text-sm mb-2">Portfolio</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Our Work Gallery & Catalog</h2>
+                <div class="w-16 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-gray-300 text-sm">Browse through our recently completed commercial projects and structural installations across Rajasthan.</p>
+            </div>
+
+            <!-- Dynamic Image Grid Controlled by JS -->
+            <div id="catalog-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                <!-- Images loads dynamically via JavaScript -->
+            </div>
+
+            <!-- Load More Button Trigger -->
+            <div class="text-center mb-12">
+                <button id="show-more-btn" onclick="loadMoreImages()" class="bg-transparent border border-accent text-white font-bold px-8 py-3 rounded-full hover:bg-accent hover:text-primary transition shadow-lg cursor-pointer inline-flex items-center gap-2 hidden">
+                    <i class="fa-solid fa-plus"></i> Load More Projects
+                </button>
+            </div>
+
+            <div class="text-center" data-aos="fade-up">
+                <a href="catalog.pdf" download class="inline-flex items-center justify-center gap-3 bg-accent text-primary font-bold px-8 py-4 rounded-xl hover:bg-yellow-400 transition shadow-lg shadow-accent/20 cursor-pointer">
+                    <i class="fa-solid fa-file-pdf text-xl"></i> Download Complete Catalog (PDF)
+                </a>
+                <p class="text-xs text-gray-400 mt-4">Download our latest product specifications and corporate profile.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="productModal" class="fixed inset-0 bg-primary/80 backdrop-blur-xs z-[100] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+            <div class="p-6 md:p-8 relative">
+                <button onclick="closeProductModal()" class="absolute top-6 right-6 text-gray-400 hover:text-red-500 text-2xl transition cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-secondary text-xl"><i class="fa-solid fa-door-closed"></i></div>
+                    <h2 id="modalTitle" class="text-2xl font-extrabold text-primary">Product Name</h2>
+                </div>
+                <div class="space-y-3 mb-6">
+                    <p class="text-sm font-semibold text-gray-700">Engineering Metrics:</p>
+                    <ul class="space-y-2 text-sm text-gray-600 list-disc pl-5">
+                        <li id="modSpec1">Metric 1</li>
+                        <li id="modSpec2">Metric 2</li>
+                        <li id="modSpec3">Metric 3</li>
+                    </ul>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://wa.me/917976729458" target="_blank" class="bg-green-500 text-white px-6 py-2.5 rounded-full font-bold text-center flex-1 text-sm flex items-center justify-center gap-2 cursor-pointer"><i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry</a>
+                    <button type="button" onclick="closeProductModal()" class="bg-gray-100 text-primary px-6 py-2.5 rounded-full font-semibold text-center text-sm cursor-pointer">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="specs" class="py-20 bg-bglight text-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold">Standard Engineering Specifications</h2>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="bg-gray-50 text-secondary text-xs uppercase tracking-wider border-b border-gray-200">
+                            <th class="p-5 font-bold">Parameter</th>
+                            <th class="p-5 font-bold">Fire Exit Door (120 Min)</th>
+                            <th class="p-5 font-bold">General Purpose Steel Door</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-xs md:text-sm text-gray-600 divide-y divide-gray-100">
+                        <tr>
+                            <td class="p-5 font-semibold text-primary">Material</td>
+                            <td class="p-5">G.I. (Galvanized Iron) Sheet</td>
+                            <td class="p-5">M.S. / G.I. Sheet</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-semibold text-primary">Sheet Thickness</td>
+                            <td class="p-5">1.20 mm</td>
+                            <td class="p-5">0.80 mm</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-semibold text-primary">Infill Density</td>
+                            <td class="p-5">96 Kg/M3 Mineral Wool</td>
+                            <td class="p-5">48 Kg/M3 Insulation</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-bold text-accent">Compliance</td>
+                            <td class="p-5 text-primary font-bold">IS:3614 & BS:476 Approved</td>
+                            <td class="p-5 text-primary">Standard Industrial Fitting</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12 items-start">
+                
+                <div class="bg-bglight p-8 rounded-2xl border border-gray-100 shadow-sm text-center lg:text-left" data-aos="fade-right">
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">Customer Feedback</h2>
+                    <div class="flex items-center justify-center lg:justify-start gap-2 mb-4">
+                        <span class="text-4xl font-extrabold text-primary">4.9</span>
+                        <div>
+                            <div class="text-accent flex gap-1 text-sm">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">Based on 1,450+ verified client reviews <br>and unwavering industry trust.</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="toggleReviewForm()" class="w-full bg-secondary text-white py-3 rounded-xl font-semibold text-sm hover:bg-primary transition shadow-md cursor-pointer">Write a Product Review</button>
+                </div>
+
+                <div class="lg:col-span-2 space-y-4" id="review-container" data-aos="fade-left">
+                    
+                    <div id="review-form-block" class="hidden bg-bglight p-6 rounded-2xl border-2 border-dashed border-gray-200 transition-all mb-6">
+                        <h4 class="font-bold text-primary text-base mb-4">Share Your Experience</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" id="revName" class="w-full bg-white border border-gray-200 rounded-lg p-3 text-xs focus:outline-none" placeholder="Your Name">
+                            <select id="revStars" class="w-full bg-white border border-gray-200 rounded-lg p-3 text-xs focus:outline-none text-gray-600">
+                                <option value="5">5 Stars (Excellent)</option>
+                                <option value="4">4 Stars (Very Good)</option>
+                                <option value="3">3 Stars (Good)</option>
+                            </select>
+                            <div class="col-span-1 md:col-span-2">
+                                <textarea id="revMsg" rows="3" class="w-full bg-white border border-gray-200 rounded-lg p-3 text-xs focus:outline-none resize-none" placeholder="Describe the service..."></textarea>
+                            </div>
+                            <div class="col-span-1 md:col-span-2">
+                                <button type="button" onclick="submitCustomReview()" class="w-full bg-primary text-white py-3 rounded-lg font-bold text-xs hover:bg-secondary transition cursor-pointer">Submit Review</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <div><h5 class="font-bold text-primary text-sm md:text-base">Rajesh Mehta</h5><p class="text-xs text-gray-400">Architect & Contractor</p></div>
+                            <div class="text-accent text-xs flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-gray-600 text-xs md:text-sm">"Jaipur Door Solutions provided absolute alignment precision for our commercial tower project. Highly recommended for heavy duties!"</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <div><h5 class="font-bold text-primary text-sm md:text-base">Vikram Singh</h5><p class="text-xs text-gray-400">Industrial Plant Head</p></div>
+                            <div class="text-accent text-xs flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-gray-600 text-xs md:text-sm">"Excellent HMPS door structural rigidity. The installation team arrived on-site on schedule and calibrated the drop seals perfectly."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote" class="py-20 bg-bglight">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-primary rounded-3xl overflow-hidden shadow-xl flex flex-col lg:flex-row border border-white/5" data-aos="fade-up">
+                <div class="lg:w-2/5 p-8 md:p-12 text-white bg-gradient-to-br from-primary to-slate-900">
+                    <h3 class="text-2xl md:text-3xl font-extrabold mb-3">Structural Proposal</h3>
+                    <p class="text-xs md:text-sm text-gray-400 mb-8">Submit your specifications for instant enterprise analysis. This form directly messages our official WhatsApp.</p>
+                    <div class="space-y-4 text-xs md:text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-accent"></i> <span>+91 79767 29458</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-envelope text-accent"></i> <span>info.jaipurdoorsolutins@gmail.com</span></div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-3/5 p-8 md:p-12 bg-white text-gray-700 border border-gray-100">
+                    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Name</label>
+                            <input type="text" id="quoteName" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-3 text-sm focus:outline-none" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Phone</label>
+                            <input type="tel" id="quotePhone" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-3 text-sm focus:outline-none" placeholder="Your Number">
+                        </div>
+                        <div class="col-span-1 md:col-span-2">
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Requirements</label>
+                            <textarea id="quoteReq" rows="3" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-3 text-sm focus:outline-none resize-none" placeholder="Quantities, sizes, fire ratings..."></textarea>
+                        </div>
+                        <div class="col-span-1 md:col-span-2 mt-2">
+                            <button type="button" onclick="submitProposalForm()" class="w-full bg-secondary text-white font-bold py-3.5 rounded-xl hover:bg-primary transition shadow-md text-sm cursor-pointer">Send Proposal Request via WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full h-[250px] bg-gray-200 relative map-container border-t border-gray-200">
+        <iframe src="https://maps.google.com/maps?q=275,276%20Housing%20Board%20road%20Sector%202%20lankapuri%20shastri%20nagar%20Jaipur%20Rajasthan%20302016&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center pointer-events-none">
+            <a href="https://share.google/a04hrynAqvih3tU85" target="_blank" class="bg-white text-primary px-6 py-3 rounded-full shadow-2xl pointer-events-auto hover:bg-gray-100 transition font-bold flex items-center gap-2 border border-gray-200 text-sm">
+                <i class="fa-solid fa-location-dot text-red-500 text-lg"></i> Open in Google Maps
+            </a>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-primary text-gray-400 pt-16 pb-24 md:pb-12 border-t-2 border-accent w-full overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 text-xs md:text-sm">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-door-open text-accent text-2xl"></i>
+                        <span class="font-bold text-white uppercase text-lg tracking-wider">Jaipur Door Solutions</span>
+                    </div>
+                    <p class="leading-relaxed mb-2 text-gray-400">Premium commercial doors infrastructure, heavy mechanical engineering fabrication.</p>
+                    <p class="text-accent font-bold">Estd. 2010</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold uppercase tracking-wider mb-3 text-sm">Locations</h4>
+                    <p class="mb-3"><strong class="text-gray-300 block text-xs uppercase text-accent mb-0.5">Head Office:</strong> 275, 276 Housing Board road Sector 2 lankapuri shastri nagar Jaipur Rajasthan 302016.</p>
+                    <p><strong class="text-gray-300 block text-xs uppercase text-accent mb-0.5">Manufacturing Plant:</strong> Jaipur Door Solutions, Vishwakarma Industrial Area, Jaipur, Rajasthan 302013.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold uppercase tracking-wider mb-3 text-sm">Contact Us</h4>
+                    <p class="mb-2 flex items-center gap-2"><i class="fa-solid fa-phone text-accent"></i> <a href="tel:+917976729458" class="hover:text-white transition">+91 79767 29458</a></p>
+                    <p class="mb-4 flex items-center gap-2"><i class="fa-solid fa-envelope text-accent"></i> <a href="mailto:info.jaipurdoorsolutins@gmail.com" class="hover:text-white transition">info.jaipurdoorsolutins@gmail.com</a></p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="https://wa.me/917976729458" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-accent"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-6 text-center text-[11px] text-gray-500">
+                <p>© 2010 - 2026 Jaipur Door Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 z-[999] md:hidden flex justify-around items-center h-14 shadow-xl px-1">
+        <a href="#home" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary">
+            <i class="fa-solid fa-house text-sm mb-0.5"></i>
+            <span class="text-[9px] font-bold uppercase">Home</span>
+        </a>
+        <a href="#services" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary">
+            <i class="fa-solid fa-screwdriver-wrench text-sm mb-0.5"></i>
+            <span class="text-[9px] font-bold uppercase">Services</span>
+        </a>
+        <a href="https://wa.me/917976729458" target="_blank" class="flex flex-col items-center justify-center text-green-600">
+            <i class="fa-brands fa-whatsapp text-lg mb-0.5"></i>
+            <span class="text-[9px] font-bold uppercase">WhatsApp</span>
+        </a>
+        <a href="tel:+917976729458" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary">
+            <i class="fa-solid fa-phone text-sm mb-0.5"></i>
+            <span class="text-[9px] font-bold uppercase">Call</span>
+        </a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Custom Alert Global Callback Logic
+        let alertCallback = null;
+
+        function showCustomAlert(title, message, callback) {
+            document.getElementById('customAlertTitle').innerText = title;
+            document.getElementById('customAlertMessage').innerText = message;
+            
+            const modal = document.getElementById('customAlert');
+            const content = document.getElementById('customAlertContent');
+            
+            alertCallback = callback || null;
+
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; 
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+        }
+
+        function closeCustomAlert() {
+            const modal = document.getElementById('customAlert');
+            const content = document.getElementById('customAlertContent');
+            
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => { 
+                modal.classList.add('hidden'); 
+                if (alertCallback) {
+                    alertCallback();
+                    alertCallback = null;
+                }
+            }, 300);
+        }
+
+        // ==========================================
+        // 🚀 DYNAMIC CATALOG GALLERY DATA & SYSTEM
+        // ==========================================
+        const allCatalogImages = [
+            "project-1.jpg", "project-2.jpg", "project-3.jpg",
+            "project-4.jpg", "project-5.jpg", "project-6.jpg",
+            // Nayi images aap future me direct yahan niche add kar sakte hain:
+            "project-7.jpg", "project-8.jpg", "project-9.jpg",
+            "project-10.jpg", "project-11.jpg", "project-12.jpg"
+        ];
+
+        let currentImageCount = 0;
+        const imagesPerLoad = 6; 
+
+        function loadMoreImages() {
+            const grid = document.getElementById('catalog-grid');
+            const btn = document.getElementById('show-more-btn');
+            
+            const nextImages = allCatalogImages.slice(currentImageCount, currentImageCount + imagesPerLoad);
+            
+            nextImages.forEach((imgSrc, index) => {
+                const delay = (index % 6) * 100; 
+                const imgHTML = `
+                <div class="overflow-hidden rounded-xl h-40 md:h-56 bg-gray-800" data-aos="zoom-in" data-aos-delay="${delay}">
+                    <img src="${imgSrc}" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="Project ${currentImageCount + index + 1}">
+                </div>`;
+                grid.insertAdjacentHTML('beforeend', imgHTML);
+            });
+            
+            currentImageCount += nextImages.length;
+            
+            setTimeout(() => { 
+                if (typeof AOS !== 'undefined') { AOS.refresh(); }
+            }, 100);
+            
+            if (currentImageCount < allCatalogImages.length) {
+                btn.classList.remove('hidden');
+            } else {
+                btn.classList.add('hidden');
+            }
+        }
+
+        // Optimized Loading Screen via DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+            
+            const hideLoader = () => {
+                if(loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.style.display = 'none', 400);
+                }
+            };
+
+            // Site load hote hi loader remove hoga
+            hideLoader();
+            
+            // Failsafe Timeout 1.5 Seconds
+            setTimeout(hideLoader, 1500);
+
+            // Dynamically load initial 6 images
+            loadMoreImages();
+            
+            loadLocalReviews();
+            
+            // Start counter animation smoothly
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    const inc = target / 40; 
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 40);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        });
+
+        // Initialize AOS
+        AOS.init({ once: true, offset: 30, duration: 800 });
+
+        // Review Form Toggle with Auto-Scroll
+        function toggleReviewForm() {
+            const formBlock = document.getElementById('review-form-block');
+            formBlock.classList.toggle('hidden');
+            
+            if(!formBlock.classList.contains('hidden')) {
+                setTimeout(() => {
+                    formBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+
+        // Local Storage Reviews Setup
+        function loadLocalReviews() {
+            const savedReviews = JSON.parse(localStorage.getItem('jds_reviews')) || [];
+            const container = document.getElementById('review-container');
+            
+            savedReviews.forEach(rev => {
+                const starsHtml = '<i class="fa-solid fa-star"></i>'.repeat(rev.stars);
+                const html = `
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm mt-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <div><h5 class="font-bold text-primary text-sm md:text-base">${rev.name}</h5><p class="text-xs text-gray-400">Verified Client</p></div>
+                        <div class="text-accent text-xs flex">${starsHtml}</div>
+                    </div>
+                    <p class="text-gray-600 text-xs md:text-sm">"${rev.msg}"</p>
+                </div>`;
+                container.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        // Submit Custom Review
+        function submitCustomReview() {
+            const name = document.getElementById('revName').value.trim();
+            const stars = document.getElementById('revStars').value;
+            const msg = document.getElementById('revMsg').value.trim();
+            
+            if(!name || !msg) {
+                showCustomAlert('Required', 'Kripya apna naam aur review message darj karein.');
+                return;
+            }
+            
+            const newRev = { name, stars, msg };
+            const savedReviews = JSON.parse(localStorage.getItem('jds_reviews')) || [];
+            savedReviews.push(newRev);
+            localStorage.setItem('jds_reviews', JSON.stringify(savedReviews));
+            
+            const starsHtml = '<i class="fa-solid fa-star"></i>'.repeat(stars);
+            const html = `
+                <div class="bg-white p-6 rounded-2xl border border-green-400 shadow-sm mt-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <div><h5 class="font-bold text-primary text-sm md:text-base">${name}</h5><p class="text-xs text-green-600">New Review Added</p></div>
+                        <div class="text-accent text-xs flex">${starsHtml}</div>
+                    </div>
+                    <p class="text-gray-600 text-xs md:text-sm">"${msg}"</p>
+                </div>`;
+            
+            const formBlock = document.getElementById('review-form-block');
+            formBlock.insertAdjacentHTML('afterend', html);
+            
+            showCustomAlert('Dhanyawad!', `Aapka review successfully submit ho gaya hai, ${name}.`);
+            
+            document.getElementById('revName').value = '';
+            document.getElementById('revMsg').value = '';
+            formBlock.classList.add('hidden');
+        }
+
+        // Proposal Form Logic
+        function submitProposalForm() {
+            const name = document.getElementById('quoteName').value.trim();
+            const phone = document.getElementById('quotePhone').value.trim();
+            const req = document.getElementById('quoteReq').value.trim();
+            
+            if(!name || !phone) {
+                showCustomAlert('Hold On!', 'Kripya apna Name aur Phone number darj karein taaki hum aapse sampark kar sakein.');
+                return;
+            }
+            
+            const waNumber = "917976729458";
+            const waMessage = `Hello Jaipur Door Solutions!%0A%0AI need a new proposal:%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Requirements:* ${req}`;
+            
+            showCustomAlert('Request Ready!', 'Aapko ab WhatsApp par redirect kiya ja raha hai taaki aapki details seedhe humari team tak pahunch sakein.', function() {
+                window.location.href = `https://wa.me/${waNumber}?text=${waMessage}`;
+            });
+            
+            document.getElementById('quoteName').value = '';
+            document.getElementById('quotePhone').value = '';
+            document.getElementById('quoteReq').value = '';
+        }
+
+        // Product Modal Logic
+        function openProductModal(title, m1, m2, m3) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modSpec1').innerText = m1;
+            document.getElementById('modSpec2').innerText = m2;
+            document.getElementById('modSpec3').innerText = m3;
+            
+            const modal = document.getElementById('productModal');
+            const content = document.getElementById('modalContent');
+            
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; 
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            const content = document.getElementById('modalContent');
+            
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        // Scroll navbar & progress-bar script
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 40) { nav.classList.add('scrolled'); } 
+            else { nav.classList.remove('scrolled'); }
+            
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>
