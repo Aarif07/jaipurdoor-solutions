@@ -110,11 +110,11 @@
     <div id="progress-bar"></div>
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full z-50 top-0 py-3">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav id="navbar" class="fixed w-full z-50 top-0 py-3 h-[60px] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="flex justify-between items-center">
                 <a href="#" class="flex items-center gap-3">
-                    <img src="logo.png" onerror="this.style.display='none'" class="w-12 h-12 md:w-16 md:h-16 object-contain hq-image zoom-on-hover" alt="Logo">
+                    <img src="logo.png" onerror="this.style.display='none'" class="w-10 h-10 md:w-12 md:h-12 object-contain hq-image zoom-on-hover" alt="Logo">
                     <span class="font-black text-lg md:text-xl text-primary tracking-tight uppercase border-l-2 border-accent pl-3">Jaipur Door <span class="text-accent">Solutions</span></span>
                 </a>
                 
@@ -145,9 +145,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero-bg min-h-[65vh] py-24 flex items-center relative overflow-hidden w-full border-b-4 border-accent mt-[60px]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <!-- Hero Section (Full Screen Height) -->
+    <header id="home" class="hero-bg min-h-[calc(100vh-60px)] mt-[60px] flex items-center relative overflow-hidden w-full border-b-4 border-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16">
             <div class="max-w-2xl border-l-4 border-accent pl-6" data-aos="fade-up" data-aos-duration="1000">
                 <div class="inline-block bg-white/10 text-white font-medium px-3 py-1 text-[10px] mb-4 uppercase tracking-[0.2em] backdrop-blur-sm">
                     <i class="fa-solid fa-industry mr-2 text-accent"></i> Industrial Expertise Since 2010
@@ -163,6 +163,15 @@
                 </div>
             </div>
         </div>
+
+        <!-- MSME Tag Moved to Hero Bottom Corner -->
+        <div class="absolute bottom-4 right-4 md:bottom-8 md:right-8 bg-black/60 backdrop-blur-md border border-gray-700/50 p-2.5 md:p-3 rounded-sm z-20 text-right shadow-xl">
+            <div class="flex items-center justify-end gap-2 mb-0.5 md:mb-1">
+                <i class="fa-solid fa-certificate text-accent text-xs md:text-sm"></i>
+                <span class="text-white font-bold text-[9px] md:text-[11px] uppercase tracking-wider">Govt. Registered</span>
+            </div>
+            <p class="text-gray-300 font-bold text-[8px] md:text-[9px] uppercase tracking-widest">MSME: UDYAM-RJ-17-0626396</p>
+        </div>
     </header>
 
     <!-- Announcement Section -->
@@ -173,17 +182,15 @@
         </div>
     </section>
 
-    <!-- Work Gallery & Catalog Section (Compact Spacing & Small Title Header) -->
+    <!-- Work Gallery & Catalog Section -->
     <section id="catalog" class="py-4 bg-primary text-white border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-2" data-aos="fade-up">
                 <h2 class="text-xs md:text-sm font-bold text-white uppercase tracking-wider">Portfolio Work Gallery</h2>
             </div>
             
-            <!-- Click Hint Line -->
             <p class="text-center text-[9px] text-gray-400 mb-2 uppercase tracking-widest animate-pulse"><i class="fa-solid fa-hand-pointer text-accent"></i> Click on any image to view full size</p>
 
-            <!-- Dynamic Image Slider -->
             <div class="swiper catalogSwiper mb-2" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper" id="slider-wrapper">
                     <!-- Images load dynamically -->
@@ -195,42 +202,27 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Cleaned up layout) -->
     <section id="about" class="py-12 md:py-16 bg-bglight border-b-4 border-secondary relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-10 items-center">
-                <div class="relative" data-aos="fade-right">
-                    <!-- Corporate Profile image removed as requested -->
-                    <div class="bg-primary p-6 rounded-sm text-white shadow-lg border-l-4 border-accent z-20">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fa-solid fa-certificate text-lg text-accent"></i>
-                            <h4 class="text-base font-bold uppercase tracking-wider">Govt. Registered</h4>
-                        </div>
-                        <p class="text-gray-300 text-xs font-bold tracking-widest mt-1">MSME: UDYAM-RJ-17-0626396</p>
-                        <p class="text-gray-400 text-xs mt-3">Leading industrial metal door design, fabrication, and structural execution excellence.</p>
-                    </div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h4 class="text-accent font-bold uppercase tracking-widest text-[10px] mb-2">Corporate Profile</h4>
+            <h2 class="text-2xl md:text-3xl font-black text-primary mb-4 leading-tight uppercase">Setting the Benchmark in Industrial Doors</h2>
+            <p class="text-gray-600 mb-6 text-sm leading-relaxed max-w-2xl mx-auto">At Jaipur Door Solutions, we handle everything from high-precision engineering and manufacturing to final structural on-site implementation and maintenance. Our products are widely deployed in commercial towers, hospitals, factories, and industrial hubs across Rajasthan.</p>
+            
+            <div class="grid sm:grid-cols-2 gap-4 mt-6 text-left">
+                <div class="bg-white p-4 rounded-sm border border-gray-200 shadow-sm">
+                    <h5 class="font-bold text-primary text-xs uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-bullseye text-accent"></i> Our Mission</h5>
+                    <p class="text-[11px] text-gray-500">To deliver uncompromised safety and architectural elegance.</p>
                 </div>
-                <div data-aos="fade-left">
-                    <h4 class="text-accent font-bold uppercase tracking-widest text-[10px] mb-2">Corporate Profile</h4>
-                    <h2 class="text-2xl md:text-3xl font-black text-primary mb-3 leading-tight uppercase">Setting the Benchmark in Industrial Doors</h2>
-                    <p class="text-gray-600 mb-5 text-sm leading-relaxed border-l-2 border-gray-300 pl-4">At Jaipur Door Solutions, we handle everything from high-precision engineering and manufacturing to final structural on-site implementation and maintenance. Our products are widely deployed in commercial towers, hospitals, factories, and industrial hubs across Rajasthan.</p>
-                    
-                    <div class="grid sm:grid-cols-2 gap-3 mt-4">
-                        <div class="bg-white p-3 rounded-sm border border-gray-200 shadow-sm">
-                            <h5 class="font-bold text-primary text-xs uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-bullseye text-accent"></i> Our Mission</h5>
-                            <p class="text-[10px] text-gray-500">To deliver uncompromised safety and architectural elegance.</p>
-                        </div>
-                        <div class="bg-white p-3 rounded-sm border border-gray-200 shadow-sm">
-                            <h5 class="font-bold text-primary text-xs uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-eye text-accent"></i> Our Vision</h5>
-                            <p class="text-[10px] text-gray-500">India's most trusted commercial entrance automation.</p>
-                        </div>
-                    </div>
+                <div class="bg-white p-4 rounded-sm border border-gray-200 shadow-sm">
+                    <h5 class="font-bold text-primary text-xs uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-eye text-accent"></i> Our Vision</h5>
+                    <p class="text-[11px] text-gray-500">India's most trusted commercial entrance automation.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section (Quantities updated for 16 years from 2010 to 2026) -->
+    <!-- Stats Section -->
     <section class="py-6 bg-primary text-white border-y border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-gray-700">
@@ -283,7 +275,7 @@
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products Section (Fixed Image Styling) -->
     <section id="products" class="py-12 md:py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-8" data-aos="fade-up">
@@ -294,8 +286,9 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in">
-                    <div class="h-48 overflow-hidden bg-white border-b border-gray-200 relative group">
-                        <img src="fire-exit.png" onerror="this.src='https://images.unsplash.com/photo-1622475471958-36f731118155?q=80'" alt="Fire Exit Door" class="w-full h-full object-contain p-2 zoom-on-hover hq-image">
+                    <!-- Fixed: aspect-[4/3] keeps aspect ratio exactly 4:3 (800x600 equivalent) and object-cover ensures it fills perfectly -->
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100 border-b border-gray-200 relative group">
+                        <img src="fire-exit.png" onerror="this.src='https://images.unsplash.com/photo-1622475471958-36f731118155?q=80'" alt="Fire Exit Door" class="w-full h-full object-cover zoom-on-hover hq-image">
                         <div class="absolute top-2 right-2 bg-accent text-white text-[9px] font-bold px-2 py-1 uppercase shadow-sm z-20">IS:3614</div>
                     </div>
                     <div class="p-4 flex-grow flex flex-col justify-between">
@@ -305,8 +298,8 @@
                 </div>
                 
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="50">
-                    <div class="h-48 overflow-hidden bg-white border-b border-gray-200 relative group">
-                        <img src="fhc-door.png" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Fire FHC Door" class="w-full h-full object-contain p-2 zoom-on-hover hq-image">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100 border-b border-gray-200 relative group">
+                        <img src="fhc-door.png" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Fire FHC Door" class="w-full h-full object-cover zoom-on-hover hq-image">
                     </div>
                     <div class="p-4 flex-grow flex flex-col justify-between">
                         <h4 class="font-black text-xs text-primary mb-2 uppercase tracking-wide">Fire FHC Door</h4>
@@ -315,8 +308,8 @@
                 </div>
 
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="h-48 overflow-hidden bg-white border-b border-gray-200 relative group">
-                        <img src="hmps-door.png" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80'" alt="HMPS Door" class="w-full h-full object-contain p-2 zoom-on-hover hq-image">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100 border-b border-gray-200 relative group">
+                        <img src="hmps-door.png" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80'" alt="HMPS Door" class="w-full h-full object-cover zoom-on-hover hq-image">
                         <div class="absolute top-2 right-2 bg-primary text-white text-[9px] font-bold px-2 py-1 uppercase shadow-sm z-20">Heavy Duty</div>
                     </div>
                     <div class="p-4 flex-grow flex flex-col justify-between">
@@ -326,8 +319,8 @@
                 </div>
 
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="h-48 overflow-hidden bg-white border-b border-gray-200 relative group">
-                        <img src="general-metal.png" onerror="this.src='https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80'" alt="General Purpose Metal Door" class="w-full h-full object-contain p-2 zoom-on-hover hq-image">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100 border-b border-gray-200 relative group">
+                        <img src="general-metal.png" onerror="this.src='https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80'" alt="General Purpose Metal Door" class="w-full h-full object-cover zoom-on-hover hq-image">
                     </div>
                     <div class="p-4 flex-grow flex flex-col justify-between">
                         <h4 class="font-bold text-xs text-primary mb-2 uppercase tracking-wide">General Metal Door</h4>
@@ -336,8 +329,8 @@
                 </div>
 
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="50">
-                    <div class="h-48 overflow-hidden bg-white border-b border-gray-200 relative group">
-                        <img src="temp-proof.png" onerror="this.src='https://images.unsplash.com/photo-1622475471958-36f731118155?q=80'" alt="Double Leaf Door" class="w-full h-full object-contain p-2 zoom-on-hover hq-image">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100 border-b border-gray-200 relative group">
+                        <img src="temp-proof.png" onerror="this.src='https://images.unsplash.com/photo-1622475471958-36f731118155?q=80'" alt="Double Leaf Door" class="w-full h-full object-cover zoom-on-hover hq-image">
                     </div>
                     <div class="p-4 flex-grow flex flex-col justify-between">
                         <h4 class="font-bold text-xs text-primary mb-2 uppercase tracking-wide">Double Leaf Door</h4>
@@ -346,8 +339,8 @@
                 </div>
 
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="h-48 overflow-hidden bg-white border-b border-gray-200 relative group">
-                        <img src="shaft-door.png" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Plumbing & Fire Shaft Doors" class="w-full h-full object-contain p-2 zoom-on-hover hq-image">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100 border-b border-gray-200 relative group">
+                        <img src="shaft-door.png" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Plumbing & Fire Shaft Doors" class="w-full h-full object-cover zoom-on-hover hq-image">
                     </div>
                     <div class="p-4 flex-grow flex flex-col justify-between">
                         <h4 class="font-bold text-xs text-primary mb-2 uppercase tracking-wide">Shaft Doors</h4>
@@ -356,8 +349,8 @@
                 </div>
 
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="h-48 overflow-hidden bg-white border-b border-gray-200 relative group">
-                        <img src="aluminium-door.png" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80'" alt="Aluminium Door" class="w-full h-full object-contain p-2 zoom-on-hover hq-image">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100 border-b border-gray-200 relative group">
+                        <img src="aluminium-door.png" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80'" alt="Aluminium Door" class="w-full h-full object-cover zoom-on-hover hq-image">
                     </div>
                     <div class="p-4 flex-grow flex flex-col justify-between">
                         <h4 class="font-bold text-xs text-primary mb-2 uppercase tracking-wide">Aluminium Door</h4>
@@ -366,8 +359,8 @@
                 </div>
 
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="h-48 overflow-hidden bg-white border-b border-gray-200 relative group">
-                        <img src="pvc-door.png" onerror="this.src='https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80'" alt="PVC Doors" class="w-full h-full object-contain p-2 zoom-on-hover hq-image">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100 border-b border-gray-200 relative group">
+                        <img src="pvc-door.png" onerror="this.src='https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80'" alt="PVC Doors" class="w-full h-full object-cover zoom-on-hover hq-image">
                     </div>
                     <div class="p-4 flex-grow flex flex-col justify-between">
                         <h4 class="font-bold text-xs text-primary mb-2 uppercase tracking-wide">PVC Doors</h4>
@@ -503,7 +496,7 @@
         </div>
     </section>
 
-    <!-- Download Technical Documentation Section (Shifted down and made compact) -->
+    <!-- Download Technical Documentation Section -->
     <section class="py-6 bg-white border-t border-gray-200">
         <div class="max-w-4xl mx-auto px-4">
             <div class="bg-gray-900 p-4 rounded-sm border border-gray-800 flex flex-col md:flex-row items-center justify-between gap-3 shadow-md" data-aos="fade-up">
