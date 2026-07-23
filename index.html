@@ -145,32 +145,38 @@
         </div>
     </nav>
 
-    <!-- Hero Section (h-screen for full height fit) -->
-    <header id="home" class="hero-bg h-screen w-full flex items-center relative overflow-hidden border-b-4 border-accent pt-[60px]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="max-w-2xl border-l-4 border-accent pl-6" data-aos="fade-up" data-aos-duration="1000">
+    <!-- Hero Section -->
+    <header id="home" class="hero-bg min-h-[calc(100vh-90px)] w-full flex items-center relative overflow-hidden border-b-4 border-accent pt-[60px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-8 md:py-16">
+            <!-- Container with red left border. MSME is now strictly inside this. -->
+            <div class="max-w-2xl border-l-4 border-accent pl-5 md:pl-6" data-aos="fade-up" data-aos-duration="1000">
+                
                 <div class="inline-block bg-white/10 text-white font-medium px-3 py-1 text-[10px] mb-4 uppercase tracking-[0.2em] backdrop-blur-sm">
                     <i class="fa-solid fa-industry mr-2 text-accent"></i> Industrial Expertise Since 2010
                 </div>
+                
                 <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 tracking-tight uppercase">
                     Engineered for <br><span class="text-accent">Safety & Precision</span>
                 </h1>
-                <p class="text-sm md:text-base text-gray-300 mb-8 font-light max-w-xl">
+                
+                <p class="text-sm md:text-base text-gray-300 mb-6 font-light max-w-xl">
                     Premium manufacturing, professional installation, and expert repairing of Fire Rated Exit Doors, HMPS Doors, and Commercial Steel Entrances.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-3">
+                
+                <div class="flex flex-col sm:flex-row gap-3 mb-8">
                     <a href="#products" class="bg-accent text-white font-bold text-xs md:text-sm px-6 py-3 rounded-sm hover:bg-red-700 transition text-center uppercase tracking-wider inline-block w-fit shadow-lg">Explore Products</a>
                 </div>
-            </div>
-        </div>
 
-        <!-- MSME Tag (Small, Bottom Corner on Hero) -->
-        <div class="absolute bottom-6 right-4 md:bottom-8 md:right-8 bg-black/60 backdrop-blur-md border border-gray-600 p-2 md:p-3 rounded-sm z-20 text-right shadow-2xl">
-            <div class="flex items-center justify-end gap-1.5 mb-1">
-                <i class="fa-solid fa-certificate text-accent text-[11px] md:text-xs"></i>
-                <span class="text-white font-bold text-[9px] md:text-[10px] uppercase tracking-wider">Govt. Registered</span>
+                <!-- MSME Tag (Left Side, Inside the border line) -->
+                <div class="inline-block bg-black/60 backdrop-blur-md border border-gray-600 p-3 md:p-4 rounded-sm shadow-2xl w-fit">
+                    <div class="flex items-center justify-start gap-2 mb-1">
+                        <i class="fa-solid fa-certificate text-accent text-sm md:text-base"></i>
+                        <span class="text-white font-bold text-[10px] md:text-xs uppercase tracking-wider">Govt. Registered</span>
+                    </div>
+                    <p class="text-gray-300 font-bold text-[9px] md:text-[11px] uppercase tracking-widest">MSME: UDYAM-RJ-17-0626396</p>
+                </div>
+
             </div>
-            <p class="text-gray-300 font-bold text-[8px] md:text-[9px] uppercase tracking-widest">MSME: UDYAM-RJ-17-0626396</p>
         </div>
     </header>
 
@@ -182,7 +188,7 @@
         </div>
     </section>
 
-    <!-- Work Gallery & Catalog Section (Compact) -->
+    <!-- Work Gallery & Catalog Section -->
     <section id="catalog" class="py-4 bg-primary text-white border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-2" data-aos="fade-up">
@@ -202,7 +208,7 @@
         </div>
     </section>
 
-    <!-- About Section (Clean Layout, Image Removed) -->
+    <!-- About Section -->
     <section id="about" class="py-12 md:py-16 bg-bglight border-b-4 border-secondary relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
             <h4 class="text-accent font-bold uppercase tracking-widest text-[10px] mb-2">Corporate Profile</h4>
@@ -222,7 +228,7 @@
         </div>
     </section>
 
-    <!-- Stats Section (16 Years Update) -->
+    <!-- Stats Section -->
     <section class="py-6 bg-primary text-white border-y border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-gray-700">
@@ -275,7 +281,7 @@
         </div>
     </section>
 
-    <!-- Products Section (Perfect 800x600 fit, no crop, no empty space) -->
+    <!-- Products Section -->
     <section id="products" class="py-12 md:py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-8" data-aos="fade-up">
@@ -286,9 +292,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 
-                <!-- Product 1 -->
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in">
-                    <!-- Fixed: aspect-[4/3] keeps exact 800x600 ratio. object-contain perfectly fits it. -->
                     <div class="aspect-[4/3] w-full bg-white border-b border-gray-200 relative group overflow-hidden flex items-center justify-center">
                         <img src="fire-exit.png" onerror="this.src='https://images.unsplash.com/photo-1622475471958-36f731118155?q=80'" alt="Fire Exit Door" class="w-full h-full object-contain zoom-on-hover hq-image">
                         <div class="absolute top-2 right-2 bg-accent text-white text-[9px] font-bold px-2 py-1 uppercase shadow-sm z-20">IS:3614</div>
@@ -299,7 +303,6 @@
                     </div>
                 </div>
                 
-                <!-- Product 2 -->
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="50">
                     <div class="aspect-[4/3] w-full bg-white border-b border-gray-200 relative group overflow-hidden flex items-center justify-center">
                         <img src="fhc-door.png" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Fire FHC Door" class="w-full h-full object-contain zoom-on-hover hq-image">
@@ -310,7 +313,6 @@
                     </div>
                 </div>
 
-                <!-- Product 3 -->
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="100">
                     <div class="aspect-[4/3] w-full bg-white border-b border-gray-200 relative group overflow-hidden flex items-center justify-center">
                         <img src="hmps-door.png" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80'" alt="HMPS Door" class="w-full h-full object-contain zoom-on-hover hq-image">
@@ -322,7 +324,6 @@
                     </div>
                 </div>
 
-                <!-- Product 4 -->
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="150">
                     <div class="aspect-[4/3] w-full bg-white border-b border-gray-200 relative group overflow-hidden flex items-center justify-center">
                         <img src="general-metal.png" onerror="this.src='https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80'" alt="General Purpose Metal Door" class="w-full h-full object-contain zoom-on-hover hq-image">
@@ -333,7 +334,6 @@
                     </div>
                 </div>
 
-                <!-- Product 5 -->
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="50">
                     <div class="aspect-[4/3] w-full bg-white border-b border-gray-200 relative group overflow-hidden flex items-center justify-center">
                         <img src="temp-proof.png" onerror="this.src='https://images.unsplash.com/photo-1622475471958-36f731118155?q=80'" alt="Double Leaf Door" class="w-full h-full object-contain zoom-on-hover hq-image">
@@ -344,7 +344,6 @@
                     </div>
                 </div>
 
-                <!-- Product 6 -->
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="100">
                     <div class="aspect-[4/3] w-full bg-white border-b border-gray-200 relative group overflow-hidden flex items-center justify-center">
                         <img src="shaft-door.png" onerror="this.src='https://images.unsplash.com/photo-1541888087313-05b10631cb7c?q=80'" alt="Plumbing & Fire Shaft Doors" class="w-full h-full object-contain zoom-on-hover hq-image">
@@ -355,7 +354,6 @@
                     </div>
                 </div>
 
-                <!-- Product 7 -->
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="150">
                     <div class="aspect-[4/3] w-full bg-white border-b border-gray-200 relative group overflow-hidden flex items-center justify-center">
                         <img src="aluminium-door.png" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80'" alt="Aluminium Door" class="w-full h-full object-contain zoom-on-hover hq-image">
@@ -366,7 +364,6 @@
                     </div>
                 </div>
 
-                <!-- Product 8 -->
                 <div class="bg-white border border-gray-200 rounded-sm overflow-hidden group shadow-sm hover:shadow-md flex flex-col" data-aos="zoom-in" data-aos-delay="200">
                     <div class="aspect-[4/3] w-full bg-white border-b border-gray-200 relative group overflow-hidden flex items-center justify-center">
                         <img src="pvc-door.png" onerror="this.src='https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80'" alt="PVC Doors" class="w-full h-full object-contain zoom-on-hover hq-image">
